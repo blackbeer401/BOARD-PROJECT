@@ -1,27 +1,32 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 
-import Header from './component/Header'
-import Sidebar from './component/Sidebar'
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
-import BoardList from './pages/BoardList'
-import BoardView from './pages/BoardView'
-import BoardWrite from './pages/BoardWrite'
-import BoardEdit from './pages/BoardEdit'
+import BoardList from "./pages/BoardList";
+import BoardWrite from "./pages/BoardWrite";
+import BoardView from "./pages/BoardView";
+import BoardEdit from "./pages/BoardEdit";
 
 function App() {
-  return (
-    <div>
-      <Header></Header>
-      <Sidebar></Sidebar>
+    return (
+        <div className="app_layout">
+            <Sidebar />
 
-      <Routes>
-        <Route path="/" element={<BoardList></BoardList>}></Route>
-        <Route path="/write" element={<BoardWrite></BoardWrite>}></Route>
-        <Route path="/view/:no" element={<BoardView></BoardView>}></Route>
-        <Route path="/edit/:no" element={<BoardEdit></BoardEdit>}></Route>
-      </Routes>
-    </div>
-  )
+            <div className="app_main">
+                <Header />
+
+                <main className="app_content">
+                    <Routes>
+                        <Route path="/" element={<BoardList />} />
+                        <Route path="/write" element={<BoardWrite />} />
+                        <Route path="/view/:no" element={<BoardView />} />
+                        <Route path="/edit/:no" element={<BoardEdit />} />
+                    </Routes>
+                </main>
+            </div>
+        </div>
+    );
 }
 
-export default App
+export default App;
