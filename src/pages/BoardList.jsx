@@ -9,7 +9,7 @@ function BoardList() {
             writer: "sam",
             date: "2026-07-03",
             hit: 10,
-            content: "useParams가 어떻게 동작하는지 궁금합니다."
+            content: "Recat 가 궁급합니다.."
         },
         {
             no: 2,
@@ -18,20 +18,29 @@ function BoardList() {
             writer: "kim",
             date: "2026-07-02",
             hit: 5,
-            content: "map()이 배열을 어떻게 반복하는지 궁금합니다."
+            content: "map()이 궁금합니다."
+        },
+        {
+            no: 3,
+            category: "HTML/CSS",
+            title: "label과 질문입니다",
+            writer: "lee",
+            date: "2026-07-01",
+            hit: 8,
+            content: "label이 궁금합니다."
         }
     ];
 
     return (
         <div className="board_list">
-
             <div className="list_header">
-                <h2>MBCA 학습 문의 게시판</h2>
-                <p>HTML, CSS, JavaScript, React 학습 중 생긴 질문을 공유해보세요.</p>
+                <h2>전체 게시글</h2>
+                <p>HTML, CSS, JavaScript, React, PHP, DB, Git 학습 질문을 공유해보세요.</p>
             </div>
 
             <div className="list_top">
-                <Link to="/write">글쓰기</Link>
+                <input type="text" placeholder="검색어를 입력하세요." />
+                <Link className="btn primary" to="/write">글쓰기</Link>
             </div>
 
             <table>
@@ -52,14 +61,12 @@ function BoardList() {
                             return (
                                 <tr key={post.no}>
                                     <td>{post.no}</td>
-                                    <td>{post.category}</td>
-
-                                    <td>
+                                    <td><span className="category">{post.category}</span></td>
+                                    <td className="title_cell">
                                         <Link to={`/view/${post.no}`}>
                                             {post.title}
                                         </Link>
                                     </td>
-
                                     <td>{post.writer}</td>
                                     <td>{post.date}</td>
                                     <td>{post.hit}</td>
@@ -69,7 +76,6 @@ function BoardList() {
                     }
                 </tbody>
             </table>
-
         </div>
     );
 }

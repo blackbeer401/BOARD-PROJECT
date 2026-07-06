@@ -5,10 +5,9 @@ function Sidebar() {
         <aside className="sidebar">
             <h2>MBCA Board</h2>
 
-            <nav>
+            <nav className="side_menu">
                 <Link to="/">게시글 목록</Link>
                 <Link to="/write">글쓰기</Link>
-                <Link to="/myposts">내가 작성한 글</Link>
             </nav>
 
             <div className="side_category">
